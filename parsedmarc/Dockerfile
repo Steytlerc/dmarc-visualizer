@@ -1,7 +1,7 @@
 FROM python:alpine
 
 RUN apk update
-RUN apk add build-base libxml2-dev libxslt-dev python3-dev \ 
+RUN apk add build-base libxml2-dev libxslt-dev py-pip \ 
     && pip install parsedmarc
 
 COPY parsedmarc.ini /
