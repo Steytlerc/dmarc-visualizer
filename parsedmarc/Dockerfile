@@ -1,5 +1,4 @@
-FROM python:alpine 
-FROM golang:alpine as build
+FROM python:alpine
 
 RUN apk add build-base libxml2-dev libxslt-dev py-pip \
     && pip install parsedmarc
@@ -18,9 +17,6 @@ ENV GOPATH /tmp/build
 WORKDIR /tmp/build/cmd/geoipupdate
 RUN go get -t ./... 2> /dev/null; exit 0
 RUN go build
-
-# final image
-FROM alpine:latest
 
 # install certs needed for raw binary
 RUN apk add --update ca-certificates && \
