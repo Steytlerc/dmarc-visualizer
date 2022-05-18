@@ -1,7 +1,7 @@
 FROM python:alpine
 FROM golang:alpine as build
 
-RUN apk add build-base libxml2-dev libxslt-dev python \
+RUN apk add build-base libxml2-dev libxslt-dev \
     && pip install parsedmarc
 
 # install git and clone repo
